@@ -1,21 +1,14 @@
 // helloWorld.cpp -- This file will output "Hello World"
-//CSIS 111-<D02> 
-//<Sources if necessary>
-//Include statements 
+
 #include <iostream> 
 #include <string> 
 using namespace std;
-//Global declarations: Constants and type definitions only -- no variables
-//Function prototypes 
+
 int main()
 {
-//In cout statement below SUBSTITUTE  your name and lab number
-cout << "Noah Duran -- Lab 0" << endl << endl;
-cout << "Hello World!" << endl << endl;
-//Variable declarations
-//Program logic
-//Closing program statements 
-//--Making comment for pause does not run on MacOS-- system("pause");
-return 0;
+//This will output your name and the famous hello world!
+cout << "Noah Duran << endl;
+cout << "Hello World!" << endl;
+
 }
 //Function definitions
