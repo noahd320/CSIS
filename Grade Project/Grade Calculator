@@ -28,20 +28,20 @@ int main()
     cout << grade;
     cout << total;
     //Calculating the grade based on score over total points
-    finalGrade = grade / total;
+    finalGrade = (grade / total) * 100;
     cout << "The final grade is, " << setprecision(5) << fixed << finalGrade << endl;
 
-    //Checking the grade
-    if (grade >= 90){
+    //Checking the final grade
+    if (finalGrade >= 90){
         cout << "Excellant!" << '\n';
     }
-    else if (grade >= 80){
+    else if (finalGrade >= 80){
         cout << "Well done!" << '\n';
     }
-    else if (grade >= 70){
+    else if (finalGrade >= 70){
         cout << "Your grade is good." << '\n';
     }
-    else if (grade >= 60){
+    else if (finalGrade >= 60){
         cout << "Your grade needs improvement." << '\n';
     }
     else{
