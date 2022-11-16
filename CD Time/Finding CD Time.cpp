@@ -22,23 +22,32 @@ int main()
     inFile.open("songs.txt");
     outFile.open("timeRemaining.txt");
 
-    //Song number counter
+    //Setting counter and other known inputs
     songNumber = 1;
+    cdTotal = 4800;
+    totalMinutes = 0;
+    totalSeconds = 0;
     while (!inFile.eof())
     {
         inFile >> initialTime;
-        cdTotal = 4800;
+
+        initialMinutes = initialTime / 60;
+        initialTime = initialTime % 60;
+        initialSeconds = initialTime;
+
+        totalMinutes = (totalMinutes + initialMinutes) / 60;
+        totalSeconds = (totalSeconds + initialSeconds) % 60;
+
         remainingTime = cdTotal - initialTime;
         remainingMinutes = remainingTime / 60;
         remainingSeconds = remainingTime % 60;
-        songMinutes = initialTime / 60;
-        initialTime = initialTime % 60;
-        songSeconds = initialTime;
+
+
         outFile <<  "Song Number" << setw(12) << "Song Time" << setw(15) << "Total Time" << endl;
-        outFile << songNumber << setw(14) << songMinutes << ":" << songSeconds << setw(14) << remainingMinutes << ":" << remainingSeconds << endl;
+        outFile << songNumber << setw(14) << initialMinutes << ":" << initialSeconds << setw(14) << totalMinutes << ":" << totalSeconds << endl;
         songNumber ++;
     }
-    outFile << "There is " << songMinutes << " minutes and " << songSeconds << " seconds on the disk." << endl;
+    outFile << "There is " << totalMinutes << " minutes and " << totalSeconds << " seconds on the disk." << endl;
     outFile << "There is " << remainingMinutes << " minutes and " << remainingSeconds << " seconds left on the disk." << endl;
 
     
