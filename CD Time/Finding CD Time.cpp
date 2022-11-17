@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    int initialTime, songSeconds, songMinutes, remainingTime, remainingMinutes, remainingSeconds, cdTotal, songNumber;
+    int initialTime, initialSeconds, initialMinutes, remainingTime, remainingMinutes, remainingSeconds, cdTotal, totalTime, totalMinutes, totalSeconds, leftOverMin, songNumber;
 
     //Setting the input file and output file
     ifstream inFile;
@@ -35,12 +35,13 @@ int main()
         initialTime = initialTime % 60;
         initialSeconds = initialTime;
 
-        totalMinutes = (totalMinutes + initialMinutes) / 60;
-        totalSeconds = (totalSeconds + initialSeconds) % 60;
-
-        remainingTime = cdTotal - initialTime;
-        remainingMinutes = remainingTime / 60;
-        remainingSeconds = remainingTime % 60;
+        totalMinutes += initialMinutes;
+        totalSeconds += initialSeconds;
+        totalMinutes += totalSeconds / 60;
+        totalSeconds = totalSeconds % 60;
+        
+        remainingMinutes = 80 - totalMinutes;
+        remainingSeconds = (4800 - totalSeconds) % 60;
 
 
         outFile <<  "Song Number" << setw(12) << "Song Time" << setw(15) << "Total Time" << endl;
