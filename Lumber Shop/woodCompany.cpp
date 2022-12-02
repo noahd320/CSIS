@@ -3,7 +3,7 @@
 #include <iostream> 
 #include <string> 
 using namespace std;
-//Global declarations: Constants and type definitions only -- no variables
+
 //Function prototypes 
 
 double pinePrice(double boardWidth, double boardHeight, double boardLength, double woodQuantity);
@@ -15,8 +15,7 @@ double oakPrice(double boardWidth, double boardHeight, double boardLength, doubl
 
 int main()
 {
-//In cout statement below SUBSTITUTE  your name and lab number
-cout << "Noah Duran  -- Lab Number 5" << endl << endl;
+
 //Variable declarations
 double boardWidth, boardHeight, boardLength, woodQuantity, totalPrice;
 char woodType;
