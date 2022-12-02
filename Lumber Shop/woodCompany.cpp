@@ -15,19 +15,21 @@ double oakPrice(double boardWidth, double boardHeight, double boardLength, doubl
 
 int main()
 {
-
+//In cout statement below SUBSTITUTE  your name and lab number
+cout << "Noah Duran  -- Lab Number 5" << endl << endl;
 //Variable declarations
-double boardWidth, boardHeight, boardLength, woodQuantity, totalPrice, boardPrice;
+double boardWidth, boardHeight, boardLength, woodQuantity, totalPrice;
 char woodType;
-  
-totalPrice += boardPrice;
+
+totalPrice = 0;
 
 
 //Prompting customer for wood type, wood demensions, and number of boards  
 cout << "What kind of wood would you like?" << '\n' << "Please enter P for Pine, F for Fir, C for Cedar, M for Maple, or O for Oak" << 
 '\n' << "Otherwise press T for the total: ";
 cin >> woodType;
-    while (woodType != 'T' || woodType != 't')
+    //While loop will check if the user is inputting correct characters for the wood. If not the program will terminate.
+    while (woodType != 'T' && woodType != 't')
     {
         if (woodType == 'P' || woodType == 'p')
         {
@@ -35,10 +37,7 @@ cin >> woodType;
             cin >> boardWidth >> boardHeight >> boardLength;
             cout << "How many boards do you need? " << '\n';
             cin >> woodQuantity;
-            pinePrice(boardWidth, boardHeight, boardLength, woodQuantity);
-            cout << "Do you want to add to your order?" << '\n' << "If so enter P for Pine, F for Fir, C for Cedar, M for Maple, or O for Oak" << 
-            '\n' << "Otherwise press T for the total: ";
-            cin >> woodType;
+            totalPrice += pinePrice(boardWidth, boardHeight, boardLength, woodQuantity);
         }
         else if (woodType == 'F' || woodType == 'f')
         {
@@ -46,10 +45,7 @@ cin >> woodType;
             cin >> boardWidth >> boardHeight >> boardLength;
             cout << "How many boards do you need? " << '\n';
             cin >> woodQuantity;
-            firPrice(boardWidth, boardHeight, boardLength, woodQuantity);
-            cout << "Do you want to add to your order?" << '\n' << "If so enter P for Pine, F for Fir, C for Cedar, M for Maple, or O for Oak" << 
-            '\n' << "Otherwise press T for the total: ";
-            cin >> woodType;
+            totalPrice += firPrice(boardWidth, boardHeight, boardLength, woodQuantity);
         }
         else if (woodType == 'C' || woodType == 'c')
         {
@@ -57,10 +53,7 @@ cin >> woodType;
             cin >> boardWidth >> boardHeight >> boardLength;
             cout << "How many boards do you need? " << '\n';
             cin >> woodQuantity;
-            cedarPrice(boardWidth, boardHeight, boardLength, woodQuantity);
-            cout << "Do you want to add to your order?" << '\n' << "If so enter P for Pine, F for Fir, C for Cedar, M for Maple, or O for Oak" << 
-            '\n' << "Otherwise press T for the total: ";
-            cin >> woodType;
+            totalPrice += cedarPrice(boardWidth, boardHeight, boardLength, woodQuantity);
         }
         else if (woodType == 'M' || woodType == 'm')
         {
@@ -68,10 +61,7 @@ cin >> woodType;
             cin >> boardWidth >> boardHeight >> boardLength;
             cout << "How many boards do you need? " << '\n';
             cin >> woodQuantity;
-            maplePrice(boardWidth, boardHeight, boardLength, woodQuantity);
-            cout << "Do you want to add to your order?" << '\n' << "If so enter P for Pine, F for Fir, C for Cedar, M for Maple, or O for Oak" << 
-            '\n' << "Otherwise press T for the total: ";
-            cin >> woodType;
+            totalPrice += maplePrice(boardWidth, boardHeight, boardLength, woodQuantity);
         }
         else if (woodType == 'O' || woodType == 'o')
         {
@@ -79,25 +69,23 @@ cin >> woodType;
             cin >> boardWidth >> boardHeight >> boardLength;
             cout << "How many boards do you need? " << '\n';
             cin >> woodQuantity;
-            oakPrice(boardWidth, boardHeight, boardLength, woodQuantity);
-            cout << "Do you want to add to your order?" << '\n' << "If so enter P for Pine, F for Fir, C for Cedar, M for Maple, or O for Oak" << 
-            '\n' << "Otherwise press T for the total: ";
-            cin >> woodType;
+            totalPrice += oakPrice(boardWidth, boardHeight, boardLength, woodQuantity);
         }
-        else
+        else if (woodType != 'T' && woodType != 't')
+        {
         cout << "Invalid wood type. Please try again." << endl;
-        break;
+        return 0;
         }
-    while (woodType == 'T' || woodType =='t')
-    {
-        cout << "Your total price is " << totalPrice << endl;
-        break;
-    }
-    
+        //Starting the loop over incase the user wants to order more wood or get the total.
+        cout << "Do you want to add to your order?" << '\n' << "If so enter P for Pine, F for Fir, C for Cedar, M for Maple, or O for Oak" << 
+        '\n' << "Otherwise press T for the total: ";
+        cin >> woodType;
 
-//Program logic
-//Closing program statements 
-//system("pause");
+        }
+
+//This will output the total then end the program
+cout << "Your total price is: " << totalPrice << endl;
+    
 return 0;
 }
 //Function definitions
