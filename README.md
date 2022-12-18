@@ -1,3 +1,3 @@
 # CSIS
-Code from my CS class
-This is the week by week examples as I work through C++, hopefully I can make these secure and efficent...
+Code from my CS class.
+This is the week by week examples as I work through C++
